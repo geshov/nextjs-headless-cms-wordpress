@@ -2,4 +2,4 @@
 
 В примере используется Next.js версии 16 (App Router) с активацией Cache Components.
 
-Рабочая версия этого примера по <a href="https://next.geshov.ru/" target="_blank">ссылке</a>.
+Рабочая версия этого примера по [ссылке](https://next.geshov.ru/).
