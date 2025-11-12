@@ -1,0 +1,29 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+  themes: dark --default;
+  exclude: properties;
+  logs: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+
+  --color-primary: oklch(45% 0.085 224.283);
+  --color-primary-content: oklch(98% 0.019 200.873);
+
+  --color-secondary: oklch(71% 0.143 215.221);
+  --color-secondary-content: oklch(30% 0.056 229.695);
+
+  --color-warning: oklch(83% 0.128 66.29);
+  --color-warning-content: oklch(26% 0.079 36.259);
+
+  --color-error: oklch(70% 0.191 22.216);
+  --color-error-content: oklch(25% 0.092 26.042);
+}
+
+.prose {
+  @apply max-w-none;
+}
