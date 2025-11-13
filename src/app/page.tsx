@@ -1,3 +1,4 @@
+import { Controls } from "@/ui/controls/controls";
 import { Posts } from "@/ui/posts/posts";
 
 export default async function Home({
@@ -10,11 +11,12 @@ export default async function Home({
   const order = (await searchParams).order || "desc";
 
   return (
-    <main className="max-w-7xl mx-auto space-y-12 p-4">
-      <div className="prose">
+    <main className="max-w-7xl mx-auto p-4">
+      <div className="prose pb-12">
         <h1>Статьи из Headless CMS</h1>
       </div>
 
+      <Controls search={search} orderby={orderby} order={order} />
       <Posts search={search} orderby={orderby} order={order} />
     </main>
   );
