@@ -1,10 +1,10 @@
 {
-  "name": "wp-geshov-ru-next",
+  "name": "nextjs-headless-cms-wordpress",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && cp ./.next/BUILD_ID .",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
