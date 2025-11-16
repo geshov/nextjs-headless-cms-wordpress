@@ -10,7 +10,7 @@ export function Sort({ orderby, order }: { orderby: string; order: string }) {
   const setSort = (field: string, value: string) => {
     const params = new URLSearchParams(searchParams);
     params.set(field, value);
-    router.push(`${pathName}?${params.toString()}`);
+    router.replace(`${pathName}?${params.toString()}`);
   };
 
   return (
