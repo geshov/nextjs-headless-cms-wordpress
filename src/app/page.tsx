@@ -1,3 +1,6 @@
+import { Suspense } from "react";
+import Loading from "@/app/loading";
+
 import { Controls } from "@/ui/controls/controls";
 import { Posts } from "@/ui/posts/posts";
 
@@ -10,6 +13,8 @@ export default async function Home({
   const orderby = (await searchParams).orderby || "date";
   const order = (await searchParams).order || "desc";
 
+  const loading = search + orderby + order;
+
   return (
     <main className="max-w-7xl mx-auto p-4">
       <div className="prose pb-12">
@@ -17,7 +22,10 @@ export default async function Home({
       </div>
 
       <Controls search={search} orderby={orderby} order={order} />
-      <Posts search={search} orderby={orderby} order={order} />
+
+      <Suspense key={loading} fallback={<Loading />}>
+        <Posts search={search} orderby={orderby} order={order} />
+      </Suspense>
     </main>
   );
 }
