@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
-import { useRef, RefObject } from "react";
+import { useRef } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
 export function Search({ search }: { search: string }) {
@@ -8,7 +10,7 @@ export function Search({ search }: { search: string }) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const input = useRef<HTMLInputElement>(null) as RefObject<HTMLInputElement>;
+  const input = useRef(null) as any;
 
   const startSearch = () => {
     const params = new URLSearchParams(searchParams);

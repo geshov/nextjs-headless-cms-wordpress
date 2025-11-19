@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use cache";
-
 import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 import { Post } from "./post/post";
@@ -17,6 +15,7 @@ export async function Posts({
   orderby: string;
   order: string;
 }) {
+  "use cache";
   cacheLife("hours");
 
   const href = `${rest.base}posts?search=${search}&orderby=${orderby}&order=${order}`;
