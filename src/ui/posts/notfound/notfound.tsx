@@ -14,7 +14,7 @@ export function Notfound() {
         alt={message}
       />
 
-      <div className="text-3xl font-bold text-[#eb725f] text-center -translate-y-6">
+      <div className="text-3xl font-bold text-error text-center -translate-y-6">
         {message}
       </div>
     </div>
