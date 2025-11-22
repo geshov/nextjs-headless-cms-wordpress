@@ -28,7 +28,7 @@ export function Post({ post, index }: { post: any; index: number }) {
 
         <div
           dangerouslySetInnerHTML={{
-            __html: post.content.rendered,
+            __html: post.excerpt.rendered,
           }}></div>
       </div>
     </div>
