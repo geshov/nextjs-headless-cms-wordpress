@@ -6,16 +6,16 @@ import { Picture, Skeleton } from "@/ui/picture/picture";
 import { Other } from "./other/other";
 
 export function Post({ post }: { post: any }) {
-  const date = new Date(post.date).toLocaleDateString("ru-RU", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-6 pb-10">
       <div className="md:col-span-3 space-y-8">
-        <div className="font-semibold">{date}</div>
+        <div className="font-semibold">
+          {new Date(post.date).toLocaleDateString("ru-RU", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </div>
 
         <div className="max-w-lg">
           <Suspense fallback={<Skeleton />}>

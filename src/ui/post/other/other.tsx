@@ -27,19 +27,19 @@ export async function Other({ current }: { current: number }) {
     <div className="space-y-8">
       {posts.map((post: any) => (
         <div key={post.id}>
-          <div className="text-xs">
-            {new Date(post.date).toLocaleDateString("ru-RU", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            })}
-          </div>
+          <Link href={`/posts/${post.slug}/`}>
+            <div className="space-y-1">
+              <div className="text-xs">
+                {new Date(post.date).toLocaleDateString("ru-RU", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </div>
 
-          <div>
-            <Link href={`/posts/${post.slug}/`} className="link link-secondary">
-              {post.title.rendered}
-            </Link>
-          </div>
+              <div className="link link-secondary">{post.title.rendered}</div>
+            </div>
+          </Link>
         </div>
       ))}
     </div>

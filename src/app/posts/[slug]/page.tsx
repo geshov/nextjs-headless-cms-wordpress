@@ -1,3 +1,5 @@
+"use cache";
+
 import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
 import { rest } from "@/lib/rest";
@@ -9,7 +11,6 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  "use cache";
   cacheLife("hours");
 
   const { slug } = await params;
@@ -36,7 +37,6 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  "use cache";
   cacheLife("hours");
 
   const { slug } = await params;

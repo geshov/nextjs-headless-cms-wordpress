@@ -5,12 +5,6 @@ import { Suspense } from "react";
 import { Picture, Skeleton } from "@/ui/picture/picture";
 
 export function Item({ post }: { post: any }) {
-  const date = new Date(post.date).toLocaleDateString("ru-RU", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 py-10 border-base-content/15 border-b last:border-b-0`}>
@@ -25,7 +19,13 @@ export function Item({ post }: { post: any }) {
           <h2>{post.title.rendered}</h2>
         </div>
 
-        <div className="text-sm font-semibold">{date}</div>
+        <div className="text-sm font-semibold">
+          {new Date(post.date).toLocaleDateString("ru-RU", {
+            day: "numeric",
+            month: "long",
+            year: "numeric",
+          })}
+        </div>
 
         <div
           dangerouslySetInnerHTML={{
