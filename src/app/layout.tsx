@@ -1,5 +1,3 @@
-import type { Metadata } from "next";
-
 import "./globals.css";
 
 import { Manrope } from "next/font/google";
@@ -9,10 +7,13 @@ const manrope = Manrope({
   display: "block",
 });
 
+import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "Фронтенд для Headless CMS",
+  title: "Статьи из Headless CMS | Next.js",
   description: "Пример извлечения данных из Headless CMS посредством REST API",
 };
+
+import { Theme } from "@/ui/theme/theme";
 
 export default function RootLayout({
   children,
@@ -21,7 +22,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${manrope.className} antialiased`}>{children}</body>
+      <body className={`${manrope.className} antialiased`}>
+        <main className="max-w-7xl mx-auto p-4">
+          <Theme />
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

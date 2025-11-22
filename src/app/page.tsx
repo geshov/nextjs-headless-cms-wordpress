@@ -12,10 +12,10 @@ export default async function Home({
   const order = (await searchParams).order || "desc";
 
   return (
-    <main className="max-w-7xl mx-auto p-4">
+    <>
       <Title title="Статьи из Headless CMS" />
       <Controls search={search} orderby={orderby} order={order} />
       <Posts search={search} orderby={orderby} order={order} />
-    </main>
+    </>
   );
 }

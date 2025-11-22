@@ -2,7 +2,7 @@
 
 import { cacheLife } from "next/cache";
 import { notFound } from "next/navigation";
-import { Post } from "./post/post";
+import { Item } from "./item/item";
 import { Notfound } from "./notfound/notfound";
 import { rest } from "@/lib/rest";
 
@@ -35,8 +35,8 @@ export async function Posts({
 
   return (
     <div>
-      {posts.map((post: any, index: number) => (
-        <Post key={post.id} post={post} index={index} />
+      {posts.map((post: any) => (
+        <Item key={post.id} post={post} />
       ))}
     </div>
   );
