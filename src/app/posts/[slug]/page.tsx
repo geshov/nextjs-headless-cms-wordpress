@@ -6,11 +6,12 @@ import { rest } from "@/lib/rest";
 import { Title } from "@/ui/title/title";
 import { Post } from "@/ui/post/post";
 
+import type { Metadata } from "next";
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
-}) {
+}): Promise<Metadata> {
   cacheLife("hours");
 
   const { slug } = await params;
