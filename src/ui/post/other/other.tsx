@@ -2,26 +2,14 @@
 
 import Link from "next/link";
 import { cacheLife } from "next/cache";
-import { rest } from "@/lib/rest";
+import { getOther } from "@/lib/rest";
 
 export async function Other({ current }: { current: number }) {
   "use cache";
   cacheLife("hours");
 
-  const href = `${rest.base}posts?exclude=${current}`;
-
-  const res = await fetch(href, {
-    method: "GET",
-    headers: { auth: rest.auth },
-  });
-
-  if (!res.ok) return <Notfound />;
-
-  const total = res.headers.get("X-WP-Total");
-
-  if (!Number(total)) return <Notfound />;
-
-  const posts = await res.json();
+  const posts = await getOther(current);
+  if (!posts || !posts.length) return <div>Другие статьи не найдены.</div>;
 
   return (
     <div className="space-y-8">
@@ -44,8 +32,4 @@ export async function Other({ current }: { current: number }) {
       ))}
     </div>
   );
-}
-
-function Notfound() {
-  return <div>Другие статьи не найдены.</div>;
 }
