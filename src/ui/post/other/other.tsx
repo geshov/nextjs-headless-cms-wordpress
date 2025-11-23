@@ -4,11 +4,11 @@ import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
 
-export async function Other({ current }: { current: number }) {
+export async function Other({ post }: { post: any }) {
   "use cache";
   cacheLife("hours");
 
-  const posts = await getOther(current);
+  const posts = await getOther(post);
   if (!posts || !posts.length) return <div>Другие статьи не найдены.</div>;
 
   return (

@@ -33,8 +33,8 @@ export async function getPosts(search: string, orderby: string, order: string) {
   return await res.json();
 }
 
-export async function getOther(current: number) {
-  const href = `${rest.base}posts?exclude=${current}`;
+export async function getOther(post: any) {
+  const href = `${rest.base}posts?exclude=${post.id}`;
 
   const res = await fetch(href, {
     method: "GET",

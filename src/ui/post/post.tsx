@@ -32,7 +32,7 @@ export function Post({ post }: { post: any }) {
           <h2>Другие статьи</h2>
         </div>
 
-        <Other current={post.id} />
+        <Other post={post} />
         <Link href="/" className="btn btn-primary">
           На главную
         </Link>
