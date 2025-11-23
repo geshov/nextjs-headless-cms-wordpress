@@ -1,8 +1,5 @@
-"use cache";
-
 import { cacheLife } from "next/cache";
-import { notFound } from "next/navigation";
-import { rest } from "@/lib/rest";
+import { getPost } from "@/lib/rest";
 import { Title } from "@/ui/title/title";
 import { Post } from "@/ui/post/post";
 
@@ -12,20 +9,11 @@ export async function generateMetadata({
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
+  "use cache";
   cacheLife("hours");
 
   const { slug } = await params;
-
-  const href = `${rest.base}posts/${slug}/`;
-
-  const res = await fetch(href, {
-    method: "GET",
-    headers: { auth: rest.auth },
-  });
-
-  if (!res.ok) notFound();
-
-  const post = await res.json();
+  const post = await getPost(slug);
 
   return {
     title: `${post.title.rendered} | Next.js`,
@@ -38,20 +26,11 @@ export default async function Page({
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  "use cache";
   cacheLife("hours");
 
   const { slug } = await params;
-
-  const href = `${rest.base}posts/${slug}/`;
-
-  const res = await fetch(href, {
-    method: "GET",
-    headers: { auth: rest.auth },
-  });
-
-  if (!res.ok) notFound();
-
-  const post = await res.json();
+  const post = await getPost(slug);
 
   return (
     <>

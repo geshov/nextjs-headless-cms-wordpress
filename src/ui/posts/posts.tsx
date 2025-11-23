@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { cacheLife } from "next/cache";
-import { notFound } from "next/navigation";
 import { Item } from "./item/item";
 import { Notfound } from "./notfound/notfound";
-import { rest } from "@/lib/rest";
+import { getPosts } from "@/lib/rest";
 
 export async function Posts({
   search,
@@ -18,20 +17,8 @@ export async function Posts({
   "use cache";
   cacheLife("hours");
 
-  const href = `${rest.base}posts?search=${search}&orderby=${orderby}&order=${order}`;
-
-  const res = await fetch(href, {
-    method: "GET",
-    headers: { auth: rest.auth },
-  });
-
-  if (!res.ok) notFound();
-
-  const total = res.headers.get("X-WP-Total");
-
-  if (!Number(total)) return <Notfound />;
-
-  const posts = await res.json();
+  const posts = await getPosts(search, orderby, order);
+  if (!posts.length) return <Notfound />;
 
   return (
     <div>
