@@ -7,7 +7,7 @@ export function Theme() {
   };
 
   return (
-    <div className="flex justify-end">
+    <div className="flex justify-end max-w-7xl mx-auto pt-4 px-4">
       <label className="swap swap-rotate">
         <input
           id="theme"

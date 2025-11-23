@@ -23,10 +23,8 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${manrope.className} antialiased`}>
-        <main className="max-w-7xl mx-auto p-4">
-          <Theme />
-          {children}
-        </main>
+        <Theme />
+        {children}
       </body>
     </html>
   );
