@@ -1,17 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import Link from "next/link";
-import { Suspense } from "react";
-import { Picture, Skeleton } from "@/ui/picture/picture";
+import { Picture } from "@/ui/picture/picture";
 
 export function Item({ post }: { post: any }) {
   return (
     <div
       className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 py-10 border-base-content/15 border-b last:border-b-0`}>
       <div className="md:col-span-2">
-        <Suspense fallback={<Skeleton />}>
-          <Picture post={post} />
-        </Suspense>
+        <Picture post={post} />
       </div>
 
       <div className="md:col-span-3 space-y-6">

@@ -1,8 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import Link from "next/link";
-import { Suspense } from "react";
-import { Picture, Skeleton } from "@/ui/picture/picture";
+import { Picture } from "@/ui/picture/picture";
 import { Other } from "./other/other";
 
 export function Post({ post }: { post: any }) {
@@ -18,9 +17,7 @@ export function Post({ post }: { post: any }) {
         </div>
 
         <div className="max-w-lg">
-          <Suspense fallback={<Skeleton />}>
-            <Picture post={post} />
-          </Suspense>
+          <Picture post={post} />
         </div>
 
         <div
