@@ -15,7 +15,7 @@ export async function Other({ post }: { post: any }) {
     <div className="space-y-8">
       {posts.map((post: any) => (
         <div key={post.id}>
-          <Link href={`/posts/${post.slug}/`}>
+          <Link href={`/posts/${post.id}/`}>
             <div className="space-y-1">
               <div className="text-xs">
                 {new Date(post.date).toLocaleDateString("ru-RU", {

@@ -7,8 +7,8 @@ export const rest = {
   auth: "052fbb87-96e4-4c4e-98b8-d4b570eeea77",
 };
 
-export async function getPost(slug: string) {
-  const href = `${rest.base}posts/${slug}/`;
+export async function getPost(id: string) {
+  const href = `${rest.base}posts/${id}/`;
 
   const res = await fetch(href, {
     method: "GET",

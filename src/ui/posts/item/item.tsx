@@ -30,7 +30,7 @@ export function Item({ post }: { post: any }) {
           }}></div>
 
         <Link
-          href={`/posts/${post.slug}/`}
+          href={`/posts/${post.id}/`}
           className="btn btn-primary no-underline">
           Подробнее
         </Link>
