@@ -9,7 +9,7 @@ export async function Other({ post }: { post: any }) {
   cacheLife("hours");
 
   const posts = await getOther(post);
-  if (!posts || !posts.length) return <div>Другие статьи не найдены.</div>;
+  if (!posts.length) return <div>Другие статьи не найдены.</div>;
 
   return (
     <div className="space-y-8">

@@ -41,7 +41,7 @@ export async function getOther(post: any) {
     headers: { auth: rest.auth },
   });
 
-  if (!res.ok) return null;
+  if (!res.ok) return [];
 
   return await res.json();
 }
