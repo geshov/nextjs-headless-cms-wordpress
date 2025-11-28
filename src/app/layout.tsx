@@ -10,10 +10,11 @@ const manrope = Manrope({
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Статьи из Headless CMS | Next.js",
-  description: "Пример извлечения данных из Headless CMS посредством REST API",
+  description:
+    "Пример извлечения данных из Headless CMS (Wordpress) посредством REST API",
 };
 
-import { Theme } from "@/ui/theme/theme";
+import { Navbar } from "@/ui/navbar/navbar";
 
 export default function RootLayout({
   children,
@@ -23,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${manrope.className} antialiased`}>
-        <Theme />
+        <Navbar />
         {children}
       </body>
     </html>

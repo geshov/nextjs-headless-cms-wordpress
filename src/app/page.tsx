@@ -1,4 +1,4 @@
-import { Title } from "@/ui/title/title";
+import { Hero } from "@/ui/hero/hero";
 import { Controls } from "@/ui/controls/controls";
 import { Posts } from "@/ui/posts/posts";
 import { Footer } from "@/ui/footer/footer";
@@ -14,8 +14,8 @@ export default async function Home({
 
   return (
     <>
-      <main className="max-w-7xl mx-auto p-4">
-        <Title title="Статьи из Headless CMS" />
+      <Hero />
+      <main className="max-w-7xl mx-auto px-4">
         <Controls search={search} orderby={orderby} order={order} />
         <Posts search={search} orderby={orderby} order={order} />
       </main>

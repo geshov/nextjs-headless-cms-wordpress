@@ -6,7 +6,7 @@ import { Picture } from "@/ui/picture/picture";
 export function Item({ post }: { post: any }) {
   return (
     <div
-      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 py-10 border-base-content/15 border-b last:border-b-0`}>
+      className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8 py-12 border-base-content/15 border-b last:border-b-0`}>
       <div className="md:col-span-2">
         <Picture post={post} />
       </div>
