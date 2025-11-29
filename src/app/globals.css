@@ -39,3 +39,5 @@
   --color-error: oklch(63% 0.237 25.331);
   --color-error-content: oklch(25% 0.092 26.042);
 }
+
+@custom-variant light (&:where(:root:has(input.theme-controller:checked) *));
