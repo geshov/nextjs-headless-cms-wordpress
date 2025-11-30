@@ -36,7 +36,7 @@ export default async function Page({
   return (
     <>
       <Title post={post} />
-      <main className="max-w-7xl mx-auto p-4">
+      <main className="max-w-7xl mx-auto p-4 overflow-hidden">
         <Post post={post} />
       </main>
       <Footer />

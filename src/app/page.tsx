@@ -15,7 +15,7 @@ export default async function Home({
   return (
     <>
       <Hero />
-      <main className="max-w-7xl mx-auto px-4">
+      <main className="max-w-7xl mx-auto px-4 overflow-hidden">
         <Controls search={search} orderby={orderby} order={order} />
         <Posts search={search} orderby={orderby} order={order} />
       </main>

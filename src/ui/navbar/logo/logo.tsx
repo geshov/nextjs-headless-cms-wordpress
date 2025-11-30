@@ -9,6 +9,7 @@ export function Logo() {
         src={logo.src}
         width={logo.width}
         height={logo.height}
+        loading="eager"
         className="w-full"
         alt="Next.js"
       />
