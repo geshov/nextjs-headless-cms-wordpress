@@ -2,8 +2,8 @@
 
 export function Button() {
   const scroll = () => {
-    const posts = document.querySelector("#controls");
-    if (posts) posts.scrollIntoView({ behavior: "smooth" });
+    const list = document.querySelector("#controls");
+    if (list) list.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
