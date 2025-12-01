@@ -1,3 +1,5 @@
+/* eslint-disable react-hooks/set-state-in-effect */
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -5,15 +7,14 @@ import { Logo } from "./logo/logo";
 import { Theme } from "./theme/theme";
 
 export function Navbar() {
-  const [scroll, setScroll] = useState(() =>
-    typeof window === "undefined" ? 0 : window.scrollY
-  );
+  const [scroll, setScroll] = useState(0);
 
   const handleScroll = () => {
     setScroll(window.scrollY);
   };
 
   useEffect(() => {
+    handleScroll();
     addEventListener("scroll", handleScroll);
     return () => removeEventListener("scroll", handleScroll);
   }, []);
