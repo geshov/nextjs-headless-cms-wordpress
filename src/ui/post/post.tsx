@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Picture } from "@/ui/picture/picture";
+import { Content } from "./content/content";
 import { Other } from "./other/other";
 
 export function Post({ post }: { post: any }) {
@@ -12,11 +13,7 @@ export function Post({ post }: { post: any }) {
           <Picture post={post} />
         </div>
 
-        <div
-          dangerouslySetInnerHTML={{
-            __html: post.content.rendered,
-          }}
-          className="prose max-w-none"></div>
+        <Content post={post} />
       </div>
 
       <div className="md:col-span-2 space-y-8 pt-6 md:pt-0 md:ps-6 border-t md:border-t-0 md:border-l border-base-content/15">
