@@ -12,24 +12,13 @@ export async function Picture({ post }: { post: any }) {
   if (!image) return <div className="skeleton aspect-3/2"></div>;
 
   return (
-    <div className="hover-3d">
-      <Image
-        src={image.source_url}
-        width={image.media_details.width}
-        height={image.media_details.height}
-        sizes="(max-width: 640px) 95vw, (max-width: 768px) 46vw, 37vw"
-        className="rounded-box"
-        alt={post.title.rendered}
-      />
-
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+    <Image
+      src={image.source_url}
+      width={image.media_details.width}
+      height={image.media_details.height}
+      sizes="(max-width: 640px) 95vw, (max-width: 768px) 46vw, 37vw"
+      className="rounded-box"
+      alt={post.title.rendered}
+    />
   );
 }

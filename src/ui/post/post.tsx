@@ -1,31 +1,26 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import Link from "next/link";
 import { Picture } from "@/ui/picture/picture";
 import { Content } from "./content/content";
 import { Other } from "./other/other";
 
 export function Post({ post }: { post: any }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-5 gap-x-6 gap-y-10 py-10">
-      <div className="md:col-span-3 space-y-8">
-        <div className="max-w-lg">
+    <div className="grid grid-cols-1 md:grid-cols-5 gap-8 py-10">
+      <div className="md:col-span-3 space-y-10">
+        <div className="md:hidden">
           <Picture post={post} />
         </div>
 
         <Content post={post} />
       </div>
 
-      <div className="md:col-span-2 space-y-8 pt-8 md:pt-0 md:ps-6 border-t md:border-t-0 md:border-l border-base-content/15">
-        <div className="prose">
-          <h2>Другие статьи</h2>
+      <div className="md:col-span-2 md:-translate-y-32 space-y-10">
+        <div className="hidden md:block">
+          <Picture post={post} />
         </div>
 
         <Other post={post} />
-
-        <Link href="/" className="btn btn-primary">
-          На главную
-        </Link>
       </div>
     </div>
   );
