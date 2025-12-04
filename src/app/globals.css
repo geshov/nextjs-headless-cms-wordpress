@@ -686,3 +686,7 @@
     color: #3c526dda;
   }
 }
+
+.prose a {
+  @apply link link-secondary;
+}
