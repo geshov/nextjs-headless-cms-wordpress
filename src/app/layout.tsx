@@ -18,11 +18,11 @@ import { Suspense } from "react";
 import { Loading } from "@/ui/loading/loading";
 import { Navbar } from "@/ui/navbar/navbar";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="ru">
       <body className={`${manrope.className} antialiased`}>
