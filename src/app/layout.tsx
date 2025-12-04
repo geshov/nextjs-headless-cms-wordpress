@@ -14,6 +14,8 @@ export const metadata: Metadata = {
     "Пример извлечения данных из Headless CMS (Wordpress) посредством REST API",
 };
 
+import { Suspense } from "react";
+import { Loading } from "@/ui/loading/loading";
 import { Navbar } from "@/ui/navbar/navbar";
 
 export default function RootLayout({
@@ -25,7 +27,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${manrope.className} antialiased`}>
         <Navbar />
-        {children}
+        <Suspense fallback={<Loading />}>{children}</Suspense>
       </body>
     </html>
   );
