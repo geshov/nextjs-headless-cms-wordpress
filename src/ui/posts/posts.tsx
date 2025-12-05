@@ -5,6 +5,7 @@
 import { cacheLife } from "next/cache";
 import { Title } from "./title/title";
 import { Controls } from "./controls/controls";
+import { Count } from "./count/count";
 import { Item } from "./item/item";
 import { Notfound } from "./notfound/notfound";
 import { getPosts } from "@/lib/rest";
@@ -21,18 +22,20 @@ export async function Posts({
   cacheLife("hours");
 
   const posts = await getPosts(search, orderby, order);
+  const total = posts.length;
 
   return (
     <div>
       <Title title="Список статей" />
       <Controls search={search} orderby={orderby} order={order} />
+      <Count total={total} search={search} />
 
-      {!!posts.length &&
+      {!!total &&
         posts.map((post: any, index: number) => (
           <Item key={post.id} post={post} index={index} />
         ))}
 
-      {!posts.length && <Notfound />}
+      {!total && <Notfound />}
     </div>
   );
 }
