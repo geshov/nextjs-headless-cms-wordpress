@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+"use cache";
+
 import Image from "next/image";
 import { cacheLife } from "next/cache";
 import { getImage } from "@/lib/rest";
 
 export async function Picture({ post }: { post: any }) {
-  "use cache";
   cacheLife("hours");
 
   const image = await getImage(post);

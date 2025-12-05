@@ -5,7 +5,7 @@ const message = "Ничего не найдено";
 
 export function Notfound() {
   return (
-    <div className="flex flex-col justify-center items-center pt-6">
+    <div className="flex flex-col justify-center items-center py-10">
       <Image
         src={notfound.src}
         width={notfound.width}

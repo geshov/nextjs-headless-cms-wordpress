@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Background } from "./background/background";
-import { Button } from "./button/button";
 
 export function Hero() {
   return (
@@ -18,7 +18,9 @@ export function Hero() {
             результат.
           </div>
 
-          <Button />
+          <Link href="/posts/" className="btn btn-primary">
+            Статьи
+          </Link>
         </div>
       </div>
     </div>

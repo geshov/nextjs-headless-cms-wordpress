@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+"use cache";
+
 import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
 
 export async function Other({ post }: { post: any }) {
-  "use cache";
   cacheLife("hours");
 
   const posts = await getOther(post);
@@ -37,8 +38,8 @@ export async function Other({ post }: { post: any }) {
 
       {!posts.length && <div>Другие статьи не найдены.</div>}
 
-      <Link href="/" className="btn btn-primary">
-        На главную
+      <Link href="/posts/" className="btn btn-primary">
+        Все статьи
       </Link>
     </div>
   );

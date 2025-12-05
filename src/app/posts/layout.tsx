@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { Loading } from "@/ui/loading/loading";
 
-export default function PostLayout({
+export default function PostsLayout({
   children,
 }: {
   children: React.ReactNode;

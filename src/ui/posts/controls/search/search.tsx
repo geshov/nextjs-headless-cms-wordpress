@@ -17,7 +17,7 @@ export function Search({ search }: { search: string }) {
     const params = new URLSearchParams(searchParams);
     if (trim) params.set("search", trim);
     else params.delete("search");
-    router.replace(`${pathName}?${params.toString()}`, { scroll: false });
+    router.replace(`${pathName}?${params.toString()}`);
   };
 
   const clearSearch = () => {

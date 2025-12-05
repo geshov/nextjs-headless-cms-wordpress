@@ -2,8 +2,8 @@
 
 export function Title({ post }: { post: any }) {
   return (
-    <div className="pt-20 pb-6 bg-base-200">
-      <div className="max-w-7xl mx-auto p-4 space-y-8">
+    <div className="pt-24 pb-10 bg-base-200">
+      <div className="container space-y-8">
         <div className="prose">
           <h1>{post.title.rendered}</h1>
         </div>

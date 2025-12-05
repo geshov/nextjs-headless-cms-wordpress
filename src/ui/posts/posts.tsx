@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+"use cache";
+
 import { cacheLife } from "next/cache";
+import { Title } from "./title/title";
+import { Controls } from "./controls/controls";
 import { Item } from "./item/item";
 import { Notfound } from "./notfound/notfound";
 import { getPosts } from "@/lib/rest";
@@ -14,17 +18,21 @@ export async function Posts({
   orderby: string;
   order: string;
 }) {
-  "use cache";
   cacheLife("hours");
 
   const posts = await getPosts(search, orderby, order);
-  if (!posts.length) return <Notfound />;
 
   return (
     <div>
-      {posts.map((post: any) => (
-        <Item key={post.id} post={post} />
-      ))}
+      <Title title="Список статей" />
+      <Controls search={search} orderby={orderby} order={order} />
+
+      {!!posts.length &&
+        posts.map((post: any, index: number) => (
+          <Item key={post.id} post={post} index={index} />
+        ))}
+
+      {!posts.length && <Notfound />}
     </div>
   );
 }
