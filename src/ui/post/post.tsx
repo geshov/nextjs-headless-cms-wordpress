@@ -19,7 +19,9 @@ export function Post({ post }: { post: any }) {
             </Suspense>
           </div>
 
-          <Content post={post} />
+          <Suspense>
+            <Content post={post} />
+          </Suspense>
         </div>
 
         <div className="md:col-span-2 md:-translate-y-28 space-y-10">

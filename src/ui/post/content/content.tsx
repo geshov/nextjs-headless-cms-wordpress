@@ -1,27 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use client";
+import { styleCode } from "@/lib/shiki";
 
-import Prism from "prismjs";
-import { useEffect } from "react";
-
-import "prismjs/components/prism-bash";
-import "prismjs/components/prism-markup";
-import "prismjs/components/prism-javascript";
-import "prismjs/components/prism-css";
-import "prismjs/components/prism-json";
-
-export function Content({ post }: { post: any }) {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
+export async function Content({ post }: { post: any }) {
+  const html = await styleCode(post.content.rendered);
 
   return (
     <div
       dangerouslySetInnerHTML={{
-        __html: post.content.rendered,
+        __html: html,
       }}
-      className="prose max-w-none dark:prism-dark light:prism-light"
-      suppressHydrationWarning></div>
+      className="prose max-w-none"></div>
   );
 }
