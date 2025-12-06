@@ -1,5 +1,3 @@
-"use cache";
-
 import { cacheLife } from "next/cache";
 import { getPost } from "@/lib/rest";
 import { Post } from "@/ui/post/post";
@@ -11,6 +9,7 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
+  "use cache";
   cacheLife("hours");
 
   const { id } = await params;
@@ -27,6 +26,7 @@ export default async function Page({
 }: {
   params: Promise<{ id: string }>;
 }) {
+  "use cache";
   cacheLife("hours");
 
   const { id } = await params;

@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use cache";
-
 import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
 
 export async function Other({ post }: { post: any }) {
+  "use cache";
   cacheLife("hours");
 
   const posts = await getOther(post);

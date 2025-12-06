@@ -1,16 +1,15 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use cache";
-
 import Image from "next/image";
 import { cacheLife } from "next/cache";
 import { getImage } from "@/lib/rest";
 
 export async function Picture({ post }: { post: any }) {
+  "use cache";
   cacheLife("hours");
 
   const image = await getImage(post);
-  if (!image) return <div className="skeleton aspect-3/2"></div>;
+  if (!image) return <PictureSkeleton />;
 
   return (
     <Image
@@ -22,4 +21,8 @@ export async function Picture({ post }: { post: any }) {
       alt={post.title.rendered}
     />
   );
+}
+
+export function PictureSkeleton() {
+  return <div className="skeleton aspect-3/2"></div>;
 }

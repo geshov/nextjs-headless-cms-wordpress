@@ -1,7 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-"use cache";
-
 import { cacheLife } from "next/cache";
 import { Title } from "./title/title";
 import { Controls } from "./controls/controls";
@@ -19,6 +17,7 @@ export async function Posts({
   orderby: string;
   order: string;
 }) {
+  "use cache";
   cacheLife("hours");
 
   const posts = await getPosts(search, orderby, order);
