@@ -1,5 +1,5 @@
 import { Hero } from "@/ui/hero/hero";
 
-export default async function Home() {
+export default function Home() {
   return <Hero />;
 }
