@@ -4,7 +4,13 @@ import Image from "next/image";
 import { cacheLife } from "next/cache";
 import { getImage } from "@/lib/rest";
 
-export async function Picture({ post }: { post: any }) {
+export async function Picture({
+  post,
+  loading = "lazy",
+}: {
+  post: any;
+  loading: "lazy" | "eager";
+}) {
   "use cache";
   cacheLife("hours");
 
@@ -16,6 +22,7 @@ export async function Picture({ post }: { post: any }) {
       src={image.source_url}
       width={image.media_details.width}
       height={image.media_details.height}
+      loading={loading}
       sizes="(max-width: 640px) 95vw, (max-width: 768px) 46vw, 37vw"
       className="rounded-box"
       alt={post.title.rendered}

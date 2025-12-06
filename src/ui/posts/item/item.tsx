@@ -10,7 +10,7 @@ export function Item({ post, index }: { post: any; index: number }) {
       <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
         <div className="md:col-span-2">
           <Suspense fallback={<PictureSkeleton />}>
-            <Picture post={post} />
+            <Picture post={post} loading={index ? "lazy" : "eager"} />
           </Suspense>
         </div>
 

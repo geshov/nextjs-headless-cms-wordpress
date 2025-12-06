@@ -15,7 +15,7 @@ export function Post({ post }: { post: any }) {
         <div className="md:col-span-3 space-y-10">
           <div className="md:hidden">
             <Suspense fallback={<PictureSkeleton />}>
-              <Picture post={post} />
+              <Picture post={post} loading="eager" />
             </Suspense>
           </div>
 
@@ -27,7 +27,7 @@ export function Post({ post }: { post: any }) {
         <div className="md:col-span-2 md:-translate-y-28 space-y-10">
           <div className="hidden md:block">
             <Suspense fallback={<PictureSkeleton />}>
-              <Picture post={post} />
+              <Picture post={post} loading="eager" />
             </Suspense>
           </div>
 
