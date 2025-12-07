@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
+import { Item } from "./item/item";
 
 export async function Other({ id }: { id: number }) {
   "use cache";
@@ -18,21 +19,12 @@ export async function Other({ id }: { id: number }) {
 
       {!!posts.length &&
         posts.map((post: any) => (
-          <div key={post.id}>
-            <Link href={`/posts/${post.id}/`}>
-              <div className="space-y-1">
-                <div className="text-xs">
-                  {new Date(post.date).toLocaleDateString("ru-RU", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </div>
-
-                <div className="link link-secondary">{post.title.rendered}</div>
-              </div>
-            </Link>
-          </div>
+          <Item
+            key={post.id}
+            id={post.id}
+            title={post.title.rendered}
+            date={post.date}
+          />
         ))}
 
       {!posts.length && <div>Другие статьи не найдены.</div>}
