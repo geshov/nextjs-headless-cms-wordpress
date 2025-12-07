@@ -33,8 +33,8 @@ export async function getPosts(search: string, orderby: string, order: string) {
   return await res.json();
 }
 
-export async function getOther(post: any) {
-  const href = `${rest.base}posts?exclude=${post.id}`;
+export async function getOther(id: number) {
+  const href = `${rest.base}posts?exclude=${id}`;
 
   const res = await fetch(href, {
     method: "GET",
@@ -46,9 +46,7 @@ export async function getOther(post: any) {
   return await res.json();
 }
 
-export async function getImage(post: any) {
-  const href = post._links?.["wp:featuredmedia"]?.[0]?.href;
-
+export async function getImage(href: string | undefined) {
   if (!href) return null;
 
   const res = await fetch(href, {

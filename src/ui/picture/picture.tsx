@@ -5,16 +5,18 @@ import { cacheLife } from "next/cache";
 import { getImage } from "@/lib/rest";
 
 export async function Picture({
-  post,
+  href,
+  alt,
   loading = "lazy",
 }: {
-  post: any;
+  href: string | undefined;
+  alt: string;
   loading: "lazy" | "eager";
 }) {
   "use cache";
   cacheLife("hours");
 
-  const image = await getImage(post);
+  const image = await getImage(href);
   if (!image) return <PictureSkeleton />;
 
   return (
@@ -25,7 +27,7 @@ export async function Picture({
       loading={loading}
       sizes="(max-width: 640px) 95vw, (max-width: 768px) 46vw, 37vw"
       className="rounded-box"
-      alt={post.title.rendered}
+      alt={alt}
     />
   );
 }

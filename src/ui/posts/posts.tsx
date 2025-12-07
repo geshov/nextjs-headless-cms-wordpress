@@ -31,7 +31,15 @@ export async function Posts({
 
       {!!total &&
         posts.map((post: any, index: number) => (
-          <Item key={post.id} post={post} index={index} />
+          <Item
+            key={post.id}
+            id={post.id}
+            image={post._links?.["wp:featuredmedia"]?.[0]?.href}
+            title={post.title.rendered}
+            date={post.date}
+            excerpt={post.excerpt.rendered}
+            index={index}
+          />
         ))}
 
       {!total && <Notfound />}

@@ -4,11 +4,11 @@ import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
 
-export async function Other({ post }: { post: any }) {
+export async function Other({ id }: { id: number }) {
   "use cache";
   cacheLife("hours");
 
-  const posts = await getOther(post);
+  const posts = await getOther(id);
 
   return (
     <div className="space-y-8 pt-8 border-t md:pt-0 md:border-t-0 md:ps-6 md:border-l border-base-content/15">
