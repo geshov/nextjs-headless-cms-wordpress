@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-
 import Image from "next/image";
 import { cacheLife } from "next/cache";
 import { getImage } from "@/lib/rest";

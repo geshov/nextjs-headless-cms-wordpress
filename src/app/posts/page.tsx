@@ -15,11 +15,11 @@ export default async function Page({
   const params = search + orderby + order;
 
   return (
-    <main>
-      <Suspense fallback={<Loading />} key={params}>
+    <Suspense fallback={<Loading />} key={params}>
+      <main>
         <Posts search={search} orderby={orderby} order={order} />
         <Footer />
-      </Suspense>
-    </main>
+      </main>
+    </Suspense>
   );
 }
