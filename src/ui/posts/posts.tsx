@@ -17,8 +17,8 @@ export async function Posts({
   orderby: string;
   order: string;
 }) {
-  "use cache";
-  cacheLife("hours");
+  // "use cache";
+  // cacheLife("hours");
 
   const posts = await getPosts(search, orderby, order);
   const total = posts.length;

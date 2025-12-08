@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Background } from "./background/background";
+import { Loading } from "@/ui/loading/loading";
 
 export function Hero() {
   return (
@@ -19,7 +20,7 @@ export function Hero() {
           </div>
 
           <Link href="/posts/" className="btn btn-primary">
-            Статьи
+            Статьи <Loading />
           </Link>
         </div>
       </div>

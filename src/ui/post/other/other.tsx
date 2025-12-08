@@ -4,10 +4,11 @@ import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
 import { Item } from "./item/item";
+import { Loading } from "@/ui/loading/loading";
 
 export async function Other({ id }: { id: number }) {
-  "use cache";
-  cacheLife("hours");
+  // "use cache";
+  // cacheLife("hours");
 
   const posts = await getOther(id);
 
@@ -30,7 +31,7 @@ export async function Other({ id }: { id: number }) {
       {!posts.length && <div>Другие статьи не найдены.</div>}
 
       <Link href="/posts/" className="btn btn-primary">
-        Все статьи
+        Все статьи <Loading />
       </Link>
     </div>
   );

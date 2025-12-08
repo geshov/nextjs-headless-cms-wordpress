@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Loading } from "@/ui/loading/loading";
 
 export function Item({
   id,
@@ -23,6 +24,8 @@ export function Item({
 
           <div className="link link-secondary">{title}</div>
         </div>
+
+        <Loading />
       </Link>
     </div>
   );

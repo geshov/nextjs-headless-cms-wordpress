@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import { Picture, PictureSkeleton } from "@/ui/picture/picture";
+import { Loading } from "@/ui/loading/loading";
 
 export function Item({
   id,
@@ -46,7 +47,7 @@ export function Item({
           <div dangerouslySetInnerHTML={{ __html: excerpt }}></div>
 
           <Link href={`/posts/${id}/`} className="btn btn-primary no-underline">
-            Подробнее
+            Подробнее <Loading />
           </Link>
         </div>
       </div>

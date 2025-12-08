@@ -11,8 +11,8 @@ export async function Picture({
   alt: string;
   loading: "lazy" | "eager";
 }) {
-  "use cache";
-  cacheLife("hours");
+  // "use cache";
+  // cacheLife("hours");
 
   const image = await getImage(href);
   if (!image) return <PictureSkeleton />;
