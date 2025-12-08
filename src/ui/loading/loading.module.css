@@ -1,5 +1,5 @@
 .loading {
-  animation: loading 500ms ease-out;
+  animation: loading 500ms ease-out 100ms;
 }
 
 @keyframes loading {

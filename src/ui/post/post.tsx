@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { Title } from "./title/title";
 import { Picture, PictureSkeleton } from "@/ui/picture/picture";
-import { Content } from "./content/content";
+import { Content, ContentSkeleton } from "./content/content";
 import { Other } from "./other/other";
 
 export function Post({ post }: { post: any }) {
@@ -21,7 +21,7 @@ export function Post({ post }: { post: any }) {
             </Suspense>
           </div>
 
-          <Suspense>
+          <Suspense fallback={<ContentSkeleton />}>
             <Content content={post.content.rendered} />
           </Suspense>
         </div>
