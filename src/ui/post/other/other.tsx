@@ -4,7 +4,7 @@ import Link from "next/link";
 import { cacheLife } from "next/cache";
 import { getOther } from "@/lib/rest";
 import { Item } from "./item/item";
-import { Loading } from "@/ui/loading/loading";
+import { Status } from "@/ui/loading/loading";
 
 export async function Other({ id }: { id: number }) {
   // "use cache";
@@ -31,7 +31,7 @@ export async function Other({ id }: { id: number }) {
       {!posts.length && <div>Другие статьи не найдены.</div>}
 
       <Link href="/posts/" className="btn btn-primary">
-        Все статьи <Loading />
+        Все статьи <Status />
       </Link>
     </div>
   );

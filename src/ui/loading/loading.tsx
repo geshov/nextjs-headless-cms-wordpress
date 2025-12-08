@@ -3,9 +3,12 @@
 import css from "./loading.module.css";
 import { useLinkStatus } from "next/link";
 
-export function Loading() {
+export function Status() {
   const { pending } = useLinkStatus();
+  return <Loading pending={pending} />;
+}
 
+export function Loading({ pending }: { pending: boolean }) {
   if (pending)
     return (
       <div

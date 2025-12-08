@@ -1,13 +1,24 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
-export function Sort({ orderby, order }: { orderby: string; order: string }) {
+export function Sort({
+  orderby,
+  order,
+  setPending,
+}: {
+  orderby: string;
+  order: string;
+  setPending: any;
+}) {
   const pathName = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const setSort = (field: string, value: string) => {
+    setPending(true);
     const params = new URLSearchParams(searchParams);
     params.set(field, value);
     router.replace(`${pathName}?${params.toString()}`);

@@ -5,14 +5,26 @@
 import { useRef } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 
-export function Search({ search }: { search: string }) {
+export function Search({
+  search,
+  setPending,
+}: {
+  search: string;
+  setPending: any;
+}) {
   const pathName = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const input = useRef(null) as any;
 
+  const submit = (e: any) => {
+    e.preventDefault();
+    startSearch();
+  };
+
   const startSearch = () => {
+    setPending(true);
     const trim = input.current.value.trim();
     const params = new URLSearchParams(searchParams);
     if (trim) params.set("search", trim);
@@ -27,7 +39,7 @@ export function Search({ search }: { search: string }) {
 
   return (
     <form
-      action={startSearch}
+      onSubmit={submit}
       className="max-w-160 grow flex flex-wrap sm:flex-nowrap items-center gap-2">
       <label className="input input-primary grow pe-1">
         <input
