@@ -24,13 +24,13 @@ export function Search({
   };
 
   const startSearch = () => {
-    const trim = input.current.value.trim();
-    if (trim === search) return;
+    input.current.value = input.current.value.trim();
+    if (input.current.value === search) return;
 
     setPending(true);
-    const params = new URLSearchParams(searchParams);
 
-    if (trim) params.set("search", trim);
+    const params = new URLSearchParams(searchParams);
+    if (input.current.value) params.set("search", input.current.value);
     else params.delete("search");
 
     router.replace(`${pathName}?${params.toString()}`);
