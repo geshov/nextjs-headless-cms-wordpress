@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useSetLoading } from "@/providers/loading";
 
@@ -37,6 +38,10 @@ export function Search({ search }: { search: string }) {
     input.current.value = "";
     startSearch();
   };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [search]);
 
   return (
     <form

@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 
 "use client";
 
+import { useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useSetLoading } from "@/providers/loading";
 
@@ -14,10 +16,16 @@ export function Sort({ orderby, order }: { orderby: string; order: string }) {
 
   const setSort = (field: string, value: string) => {
     setLoading(true);
+
     const params = new URLSearchParams(searchParams);
     params.set(field, value);
+
     router.replace(`${pathName}?${params.toString()}`);
   };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [orderby, order]);
 
   return (
     <div className="flex flex-wrap sm:flex-nowrap gap-2 grow sm:grow-0">
