@@ -1,19 +1,16 @@
 "use client";
 
 import css from "./loading.module.css";
-import { useLinkStatus } from "next/link";
+import { useLoading } from "@/providers/loading";
 
-export function Status() {
-  const { pending } = useLinkStatus();
-  return <Loading pending={pending} />;
-}
+export function Loading() {
+  const loading = useLoading();
 
-export function Loading({ pending }: { pending: boolean }) {
-  if (pending)
+  if (loading)
     return (
       <div
-        className={`bg-secondary fixed top-0 right-0 left-0 z-50 h-1 ${css.loading}`}
-        style={{ transform: "translateX(-100%)" }}></div>
+        className={`bg-secondary fixed top-0 w-full h-1 z-50 ${css.loading}`}
+        style={{ left: "-100%" }}></div>
     );
 
   return null;

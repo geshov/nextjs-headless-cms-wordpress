@@ -4,14 +4,11 @@
 
 import { useRef } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useSetLoading } from "@/providers/loading";
 
-export function Search({
-  search,
-  setPending,
-}: {
-  search: string;
-  setPending: any;
-}) {
+export function Search({ search }: { search: string }) {
+  const setLoading = useSetLoading() as any;
+
   const pathName = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -27,7 +24,7 @@ export function Search({
     input.current.value = input.current.value.trim();
     if (input.current.value === search) return;
 
-    setPending(true);
+    setLoading(true);
 
     const params = new URLSearchParams(searchParams);
     if (input.current.value) params.set("search", input.current.value);

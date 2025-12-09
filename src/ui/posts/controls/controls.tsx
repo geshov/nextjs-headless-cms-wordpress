@@ -1,11 +1,12 @@
-/* eslint-disable react-hooks/set-state-in-effect */
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Search } from "./search/search";
 import { Sort } from "./sort/sort";
-import { Loading } from "@/ui/loading/loading";
+import { useSetLoading } from "@/providers/loading";
 
 export function Controls({
   search,
@@ -16,17 +17,16 @@ export function Controls({
   orderby: string;
   order: string;
 }) {
-  const [pending, setPending] = useState(false);
+  const setLoading = useSetLoading() as any;
 
   useEffect(() => {
-    setPending(false);
+    setLoading(false);
   }, [search, orderby, order]);
 
   return (
     <div className="container flex flex-wrap sm:flex-nowrap justify-between items-center gap-6 pt-10 scroll-mt-16">
-      <Search search={search} setPending={setPending} />
-      <Sort orderby={orderby} order={order} setPending={setPending} />
-      <Loading pending={pending} />
+      <Search search={search} />
+      <Sort orderby={orderby} order={order} />
     </div>
   );
 }

@@ -3,22 +3,17 @@
 "use client";
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useSetLoading } from "@/providers/loading";
 
-export function Sort({
-  orderby,
-  order,
-  setPending,
-}: {
-  orderby: string;
-  order: string;
-  setPending: any;
-}) {
+export function Sort({ orderby, order }: { orderby: string; order: string }) {
+  const setLoading = useSetLoading() as any;
+
   const pathName = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const setSort = (field: string, value: string) => {
-    setPending(true);
+    setLoading(true);
     const params = new URLSearchParams(searchParams);
     params.set(field, value);
     router.replace(`${pathName}?${params.toString()}`);

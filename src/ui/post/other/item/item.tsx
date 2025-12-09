@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Status } from "@/ui/loading/loading";
+import { LinkStatus } from "@/ui/linkstatus/linkstatus";
 
 export function Item({
   id,
@@ -25,7 +25,7 @@ export function Item({
           <div className="link link-secondary">{title}</div>
         </div>
 
-        <Status />
+        <LinkStatus />
       </Link>
     </div>
   );
