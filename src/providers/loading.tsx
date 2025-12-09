@@ -3,22 +3,18 @@
 import { createContext, useContext, useState } from "react";
 
 const LoadingContext = createContext(false);
-const SetLoadingContext = createContext({});
+const LoadingSetContext = createContext({});
 
 export function LoadingProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(false);
 
   return (
     <LoadingContext value={loading}>
-      <SetLoadingContext value={setLoading}>{children}</SetLoadingContext>
+      <LoadingSetContext value={setLoading}>{children}</LoadingSetContext>
     </LoadingContext>
   );
 }
 
 export function useLoading() {
-  return useContext(LoadingContext);
-}
-
-export function useSetLoading() {
-  return useContext(SetLoadingContext);
+  return [useContext(LoadingContext), useContext(LoadingSetContext)];
 }

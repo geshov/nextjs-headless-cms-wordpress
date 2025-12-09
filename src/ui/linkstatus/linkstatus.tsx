@@ -5,11 +5,11 @@
 
 import { useEffect } from "react";
 import { useLinkStatus } from "next/link";
-import { useSetLoading } from "@/providers/loading";
+import { useLoading } from "@/providers/loading";
 
 export function LinkStatus() {
   const { pending } = useLinkStatus();
-  const setLoading = useSetLoading() as any;
+  const [, setLoading] = useLoading() as [boolean, any];
 
   useEffect(() => {
     setLoading(pending);

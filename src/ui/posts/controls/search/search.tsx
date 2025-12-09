@@ -5,10 +5,10 @@
 
 import { useRef, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { useSetLoading } from "@/providers/loading";
+import { useLoading } from "@/providers/loading";
 
 export function Search({ search }: { search: string }) {
-  const setLoading = useSetLoading() as any;
+  const [, setLoading] = useLoading() as [boolean, any];
 
   const pathName = usePathname();
   const searchParams = useSearchParams();
