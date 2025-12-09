@@ -7,8 +7,8 @@ import { Item } from "./item/item";
 import { LinkStatus } from "@/ui/linkstatus/linkstatus";
 
 export async function Other({ id }: { id: number }) {
-  // "use cache";
-  // cacheLife("hours");
+  "use cache";
+  cacheLife("hours");
 
   const posts = await getOther(id);
 

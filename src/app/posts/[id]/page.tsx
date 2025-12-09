@@ -9,8 +9,8 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  // "use cache";
-  // cacheLife("hours");
+  "use cache";
+  cacheLife("hours");
 
   const { id } = await params;
   const post = await getPost(id);
@@ -26,8 +26,8 @@ export default async function Page({
 }: {
   params: Promise<{ id: string }>;
 }) {
-  // "use cache";
-  // cacheLife("hours");
+  "use cache";
+  cacheLife("hours");
 
   const { id } = await params;
   const post = await getPost(id);
