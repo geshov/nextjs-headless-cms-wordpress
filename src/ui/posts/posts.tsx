@@ -1,12 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { cacheLife } from "next/cache";
-import { Title } from "./title/title";
-import { Controls } from "./controls/controls";
-import { Count } from "./count/count";
-import { Item } from "./item/item";
-import { Notfound } from "./notfound/notfound";
 import { getPosts } from "@/lib/rest";
+import { Count, CountSkeleton } from "./count/count";
+import { Item, ItemSkeleton } from "./item/item";
+import { Notfound } from "./notfound/notfound";
 
 export async function Posts({
   search,
@@ -24,9 +22,7 @@ export async function Posts({
   const total = posts.length;
 
   return (
-    <div>
-      <Title title="Список статей" />
-      <Controls search={search} orderby={orderby} order={order} />
+    <>
       <Count total={total} search={search} />
 
       {!!total &&
@@ -43,6 +39,15 @@ export async function Posts({
         ))}
 
       {!total && <Notfound />}
-    </div>
+    </>
+  );
+}
+
+export function PostsSkeleton() {
+  return (
+    <>
+      <CountSkeleton />
+      <ItemSkeleton />
+    </>
   );
 }

@@ -54,3 +54,32 @@ export function Item({
     </div>
   );
 }
+
+export function ItemSkeleton() {
+  return (
+    <div className={`py-12`}>
+      <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
+        <div className="md:col-span-2">
+          <PictureSkeleton />
+        </div>
+
+        <div className="md:col-span-3 space-y-6">
+          <div className="space-y-4">
+            <div className="skeleton h-6 w-11/12"></div>
+            <div className="skeleton h-6 w-5/12"></div>
+          </div>
+
+          <div className="skeleton h-4 w-28"></div>
+
+          <div className="space-y-4">
+            <div className="skeleton h-4 w-10/12"></div>
+            <div className="skeleton h-4 w-11/12"></div>
+            <div className="skeleton h-4 w-9/12"></div>
+          </div>
+
+          <div className="skeleton h-10 w-28"></div>
+        </div>
+      </div>
+    </div>
+  );
+}

@@ -9,3 +9,11 @@ export function Count({ total, search }: { total: number; search: string }) {
     </div>
   );
 }
+
+export function CountSkeleton() {
+  return (
+    <div className="container pt-4">
+      <div className="skeleton h-5 w-28"></div>
+    </div>
+  );
+}
