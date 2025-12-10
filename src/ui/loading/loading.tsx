@@ -4,7 +4,7 @@ import css from "./loading.module.css";
 import { useLoading } from "@/providers/loading";
 
 export function Loading() {
-  const [loading] = useLoading() as [boolean];
+  const { loading } = useLoading();
 
   if (loading)
     return (

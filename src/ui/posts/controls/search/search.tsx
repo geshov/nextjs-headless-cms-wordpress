@@ -8,7 +8,7 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useLoading } from "@/providers/loading";
 
 export function Search({ search }: { search: string }) {
-  const [, setLoading] = useLoading() as [boolean, any];
+  const { setLoading } = useLoading();
 
   const pathName = usePathname();
   const searchParams = useSearchParams();

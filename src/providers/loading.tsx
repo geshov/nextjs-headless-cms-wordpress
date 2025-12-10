@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 "use client";
 
-import { createContext, useContext, useState } from "react";
+import { Context, createContext, useContext, useState } from "react";
 
 const LoadingContext = createContext(false);
-const LoadingSetContext = createContext({});
+const LoadingSetContext = createContext(null) as Context<any>;
 
 export function LoadingProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(false);
@@ -16,5 +18,8 @@ export function LoadingProvider({ children }: { children: React.ReactNode }) {
 }
 
 export function useLoading() {
-  return [useContext(LoadingContext), useContext(LoadingSetContext)];
+  return {
+    loading: useContext(LoadingContext),
+    setLoading: useContext(LoadingSetContext),
+  };
 }

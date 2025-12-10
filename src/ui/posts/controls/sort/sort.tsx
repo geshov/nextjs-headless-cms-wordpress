@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 
 "use client";
@@ -8,7 +7,7 @@ import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useLoading } from "@/providers/loading";
 
 export function Sort({ orderby, order }: { orderby: string; order: string }) {
-  const [, setLoading] = useLoading() as [boolean, any];
+  const { setLoading } = useLoading();
 
   const pathName = usePathname();
   const searchParams = useSearchParams();
