@@ -19,7 +19,10 @@ export function Item({
   index: number;
 }) {
   return (
-    <div className={`py-12 ${index % 2 === 0 ? "" : "bg-base-200"}`}>
+    <div
+      className={`py-12 ${
+        index % 2 === 0 ? "" : "bg-black/20 light:bg-white/20"
+      }`}>
       <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
         <div className="md:col-span-2">
           <Suspense fallback={<PictureSkeleton />}>
@@ -57,7 +60,10 @@ export function Item({
 
 export function ItemSkeleton({ index }: { index: number }) {
   return (
-    <div className={`py-12 ${index % 2 === 0 ? "" : "bg-base-200"}`}>
+    <div
+      className={`py-12 ${
+        index % 2 === 0 ? "" : "bg-black/20 light:bg-white/20"
+      }`}>
       <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
         <div className="md:col-span-2">
           <PictureSkeleton />

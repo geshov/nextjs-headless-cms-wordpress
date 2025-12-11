@@ -22,7 +22,7 @@ export function Item({
             })}
           </div>
 
-          <div className="link link-secondary">{title}</div>
+          <div className="link-secondary">{title}</div>
         </div>
 
         <LinkStatus />

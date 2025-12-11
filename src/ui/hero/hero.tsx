@@ -1,13 +1,10 @@
 import Link from "next/link";
-import { Background } from "./background/background";
 import { LinkStatus } from "../linkstatus/linkstatus";
 
 export function Hero() {
   return (
-    <div className="relative hero bg-base-200 min-h-screen overflow-hidden">
-      <Background />
-
-      <div className="relative hero-content text-center">
+    <div className="hero min-h-screen">
+      <div className="hero-content text-center">
         <div className="max-w-lg">
           <h1 className="text-5xl text-balance font-bold">
             Статьи из Headless CMS

@@ -14,8 +14,9 @@ export const metadata: Metadata = {
     "Пример извлечения данных из Headless CMS (Wordpress) посредством REST API",
 };
 
-import { LoadingProvider } from "@/providers/loading";
 import { Suspense } from "react";
+import { Background } from "@/ui/background/background";
+import { LoadingProvider } from "@/providers/loading";
 import { Loading } from "@/ui/loading/loading";
 import { Navbar } from "@/ui/navbar/navbar";
 
@@ -27,11 +28,15 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={`${manrope.className} antialiased`}>
-        <LoadingProvider>
-          <Loading />
-          <Navbar />
-          <Suspense>{children}</Suspense>
-        </LoadingProvider>
+        <Background />
+
+        <div className="relative">
+          <LoadingProvider>
+            <Loading />
+            <Navbar />
+            <Suspense>{children}</Suspense>
+          </LoadingProvider>
+        </div>
       </body>
     </html>
   );
