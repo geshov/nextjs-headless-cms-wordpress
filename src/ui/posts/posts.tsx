@@ -47,7 +47,8 @@ export function PostsSkeleton() {
   return (
     <>
       <CountSkeleton />
-      <ItemSkeleton />
+      <ItemSkeleton index={0} />
+      <ItemSkeleton index={1} />
     </>
   );
 }
