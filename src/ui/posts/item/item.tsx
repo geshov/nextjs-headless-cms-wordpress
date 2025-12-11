@@ -21,7 +21,7 @@ export function Item({
   return (
     <div
       className={`py-12 ${
-        index % 2 === 0 ? "" : "bg-black/20 light:bg-white/20"
+        index % 2 === 0 ? "" : "bg-black/20 light:bg-white/30"
       }`}>
       <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
         <div className="md:col-span-2">
@@ -62,7 +62,7 @@ export function ItemSkeleton({ index }: { index: number }) {
   return (
     <div
       className={`py-12 ${
-        index % 2 === 0 ? "" : "bg-black/20 light:bg-white/20"
+        index % 2 === 0 ? "" : "bg-black/20 light:bg-white/30"
       }`}>
       <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-8">
         <div className="md:col-span-2">
