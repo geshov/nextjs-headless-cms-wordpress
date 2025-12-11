@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import { Title } from "@/ui/posts/title/title";
+import { Title } from "@/ui/title/title";
 import { Controls } from "@/ui/posts/controls/controls";
 import { Posts, PostsSkeleton } from "@/ui/posts/posts";
 import { Footer } from "@/ui/footer/footer";

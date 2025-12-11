@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { Suspense } from "react";
-import { Title } from "./title/title";
+import { Title } from "@/ui/title/title";
 import { Picture, PictureSkeleton } from "@/ui/picture/picture";
 import { Content, ContentSkeleton } from "./content/content";
 import { Other } from "./other/other";
